@@ -24,7 +24,7 @@ apt update
 
 # INSTALL DOCKER
 
-apt install docker-ce=19.03.15~3 docker-ce-cli=19.03.15~3 containerd.io || wget https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/amd64/docker-ce_19.03.15~3-0~ubuntu-bionic_amd64.deb && wget https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/amd64/docker-ce-cli_19.03.15~3-0~ubuntu-bionic_amd64.deb && dpkg -i *amd64.deb
+apt install docker-ce=19.03.15~3 docker-ce-cli=19.03.15~3 containerd.io || wget https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/amd64/docker-ce_19.03.15~3-0~ubuntu-bionic_amd64.deb && wget https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/amd64/docker-ce-cli_19.03.15~3-0~ubuntu-bionic_amd64.deb && dpkg -i docker-ce-cli_19.03.15~3-0~ubuntu-bionic_amd64.deb && dpkg -i docker-ce_19.03.15~3-0~ubuntu-bionic_amd64.deb ; apt install -f -y
 #apt install docker-ce docker-ce-cli containerd.io
 
 cat > /etc/docker/daemon.json <<EOF
