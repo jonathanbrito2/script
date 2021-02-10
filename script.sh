@@ -15,19 +15,16 @@ apt upgrade -y
 
 apt install apt-transport-https ca-certificates curl software-properties-common -y
 
-#curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add –
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add –
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
+#curl -fsSL https://get.docker.com | bash
 
-#sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
-#add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-
-curl -fsSL https://get.docker.com | bash
-
-#apt update
+apt update
 
 # INSTALL DOCKER
 
-#sudo apt install docker-ce=19.03.15~3 docker-ce-cli=19.03.15~3 containerd.io
+apt install docker-ce=19.03.15~3 docker-ce-cli=19.03.15~3 containerd.io || wget https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/amd64/docker-ce_19.03.15~3-0~ubuntu-bionic_amd64.deb && wget https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/amd64/docker-ce-cli_19.03.15~3-0~ubuntu-bionic_amd64.deb && dpkg -i *amd64.deb
 #apt install docker-ce docker-ce-cli containerd.io
 
 cat > /etc/docker/daemon.json <<EOF
