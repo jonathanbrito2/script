@@ -9,21 +9,24 @@ ip_vs_wrr
 nf_conntrack_ipv4
 EOF
 
-sudo apt update
+apt update
 
-sudo apt upgrade -y
+apt upgrade -y
 
-sudo apt install apt-transport-https ca-certificates curl software-properties-common
+apt install apt-transport-https ca-certificates curl software-properties-common
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add –
 
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 
-sudo apt update
+#sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+apt update
 
 # INSTALL DOCKER
 
-sudo apt install docker-ce=19.03.15~3 docker-ce-cli=19.03.15~3 containerd.io
+#sudo apt install docker-ce=19.03.15~3 docker-ce-cli=19.03.15~3 containerd.io
+apt install docker-ce docker-ce-cli containerd.io
 
 cat > /etc/docker/daemon.json <<EOF
 {
@@ -36,7 +39,7 @@ cat > /etc/docker/daemon.json <<EOF
 }
 EOF
 
-sudo mkdir -p /etc/systemd/system/docker.service.d
+mkdir -p /etc/systemd/system/docker.service.d
 
 systemctl daemon-reload
 
